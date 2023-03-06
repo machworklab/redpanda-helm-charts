@@ -1,6 +1,67 @@
 apiVersion: v1
 entries:
+  console:
+  - annotations:
+      artifacthub.io/images: |
+        - name: redpanda
+          image: docker.redpanda.com/vectorized/console:v2.1.1
+      artifacthub.io/license: Apache-2.0
+      artifacthub.io/links: |
+        - name: Documentation
+          url: https://docs.redpanda.com
+        - name: "Helm (>= 3.6.0)"
+          url: https://helm.sh/docs/intro/install/
+    apiVersion: v2
+    appVersion: v2.2.0
+    created: "2023-03-06T12:23:22.840993234Z"
+    description: Helm chart to deploy Redpanda Console.
+    digest: 4dee7f49848c7519f0b70d370c471868da89578f15e6c09b96e4cf12d647c634
+    icon: https://images.ctfassets.net/paqvtpyf8rwu/3cYHw5UzhXCbKuR24GDFGO/73fb682e6157d11c10d5b2b5da1d5af0/skate-stand-panda.svg
+    maintainers:
+    - name: redpanda-data
+      url: https://github.com/orgs/redpanda-data/people
+    name: console
+    sources:
+    - https://github.com/redpanda-data/helm-charts
+    type: application
+    urls:
+    - https://github.com/machworklab/redpanda-helm-charts/releases/download/console-0.5.4/console-0.5.4.tgz
+    version: 0.5.4
   redpanda:
+  - annotations:
+      artifacthub.io/images: |
+        - name: redpanda
+          image: vectorized/redpanda:v22.3.13
+        - name: busybox
+          image: busybox:latest
+      artifacthub.io/license: Apache-2.0
+      artifacthub.io/links: |
+        - name: Documentation
+          url: https://docs.redpanda.com
+        - name: "Helm (>= 3.6.0)"
+          url: https://helm.sh/docs/intro/install/
+    apiVersion: v2
+    appVersion: v22.3.13
+    created: "2023-03-06T12:23:23.060867949Z"
+    dependencies:
+    - condition: console.enabled
+      name: console
+      repository: https://charts.redpanda.com
+      version: '>=0.5 <1.0'
+    description: Redpanda is the real-time engine for modern apps.
+    digest: 7dcbdede4909ac2b385dccd153ac21fc054aa00e0ce70e5b665c0e43d92aca15
+    icon: https://images.ctfassets.net/paqvtpyf8rwu/3cYHw5UzhXCbKuR24GDFGO/73fb682e6157d11c10d5b2b5da1d5af0/skate-stand-panda.svg
+    kubeVersion: ^1.21.0-0
+    maintainers:
+    - name: redpanda-data
+      url: https://github.com/orgs/redpanda-data/people
+    name: redpanda
+    sources:
+    - https://github.com/redpanda-data/helm-charts
+    type: application
+    urls:
+    - https://github.com/machworklab/redpanda-helm-charts/releases/download/redpanda-2.12.2/redpanda-2.12.2.tgz
+    version: 2.12.2
   - apiVersion: v2
     appVersion: latest
     created: "2021-04-05T04:29:00.507300122Z"
@@ -104,4 +165,4 @@ entries:
     urls:
     - https://charts.vectorized.io/redpanda-0.1.0.tgz
     version: 0.1.0
-generated: "2021-04-05T04:29:00.501996358Z"
+generated: "2023-03-06T12:23:23.06090455Z"
