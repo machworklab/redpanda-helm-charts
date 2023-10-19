@@ -4,6 +4,35 @@ entries:
   - annotations:
       artifacthub.io/images: |
         - name: connectors
+          image: docker.redpanda.com/redpandadata/connectors:v1.0.6
+        - name: rpk
+          image: docker.redpanda.com/redpandadata/redpanda:latest
+      artifacthub.io/license: Apache-2.0
+      artifacthub.io/links: |
+        - name: Documentation
+          url: https://docs.redpanda.com
+        - name: "Helm (>= 3.6.0)"
+          url: https://helm.sh/docs/intro/install/
+    apiVersion: v2
+    appVersion: v1.0.6
+    created: "2023-10-19T10:29:30.51981177Z"
+    description: Redpanda managed Connectors helm chart
+    digest: e90de63c27cf5f62fef34d7ac210344fb5b6f8ebd701b44db1cdef6539d9f178
+    icon: https://images.ctfassets.net/paqvtpyf8rwu/3cYHw5UzhXCbKuR24GDFGO/73fb682e6157d11c10d5b2b5da1d5af0/skate-stand-panda.svg
+    kubeVersion: ^1.21.0-0
+    maintainers:
+    - name: redpanda-data
+      url: https://github.com/orgs/redpanda-data/people
+    name: connectors
+    sources:
+    - https://github.com/redpanda-data/helm-charts
+    type: application
+    urls:
+    - https://github.com/machworklab/redpanda-helm-charts/releases/download/connectors-0.1.7/connectors-0.1.7.tgz
+    version: 0.1.7
+  - annotations:
+      artifacthub.io/images: |
+        - name: connectors
           image: docker.redpanda.com/redpandadata/connectors:v1.0.2
         - name: rpk
           image: docker.redpanda.com/redpandadata/redpanda:latest
@@ -63,6 +92,32 @@ entries:
   - annotations:
       artifacthub.io/images: |
         - name: redpanda
+          image: docker.redpanda.com/redpandadata/console:v2.3.5
+      artifacthub.io/license: Apache-2.0
+      artifacthub.io/links: |
+        - name: Documentation
+          url: https://docs.redpanda.com
+        - name: "Helm (>= 3.6.0)"
+          url: https://helm.sh/docs/intro/install/
+    apiVersion: v2
+    appVersion: v2.3.5
+    created: "2023-10-19T10:29:30.769791426Z"
+    description: Helm chart to deploy Redpanda Console.
+    digest: 76e33ab80f1fa34493d3a2c0a4b4068f4bcf0f2bccd91dd60b5f1cf95ded3ab9
+    icon: https://images.ctfassets.net/paqvtpyf8rwu/3cYHw5UzhXCbKuR24GDFGO/73fb682e6157d11c10d5b2b5da1d5af0/skate-stand-panda.svg
+    maintainers:
+    - name: redpanda-data
+      url: https://github.com/orgs/redpanda-data/people
+    name: console
+    sources:
+    - https://github.com/redpanda-data/helm-charts
+    type: application
+    urls:
+    - https://github.com/machworklab/redpanda-helm-charts/releases/download/console-0.7.6/console-0.7.6.tgz
+    version: 0.7.6
+  - annotations:
+      artifacthub.io/images: |
+        - name: redpanda
           image: docker.redpanda.com/redpandadata/console:v2.2.5
       artifacthub.io/license: Apache-2.0
       artifacthub.io/links: |
@@ -115,6 +170,33 @@ entries:
   kminion:
   - annotations:
       artifacthub.io/images: |
+        - name: kminion
+          image: docker.redpanda.com/redpandadata/kminion:v2.2.5
+      artifacthub.io/license: Apache-2.0
+      artifacthub.io/links: |
+        - name: Documentation
+          url: https://docs.redpanda.com
+        - name: "Helm (>= 3.6.0)"
+          url: https://helm.sh/docs/intro/install/
+    apiVersion: v2
+    appVersion: v2.2.5
+    created: "2023-10-19T10:29:30.98754888Z"
+    description: The most popular Open Source Kafka JMX to Prometheus tool by the
+      creators of Redpanda Console and Redpanda
+    digest: ab242b4b62d1db2e51b301b16f15263d0694f42dbeddc059f9ce593d6a35e8be
+    icon: https://images.ctfassets.net/paqvtpyf8rwu/3cYHw5UzhXCbKuR24GDFGO/73fb682e6157d11c10d5b2b5da1d5af0/skate-stand-panda.svg
+    maintainers:
+    - name: redpanda-data
+      url: https://github.com/orgs/redpanda-data/people
+    name: kminion
+    sources:
+    - https://github.com/redpanda-data/helm-charts
+    type: application
+    urls:
+    - https://github.com/machworklab/redpanda-helm-charts/releases/download/kminion-0.12.4/kminion-0.12.4.tgz
+    version: 0.12.4
+  - annotations:
+      artifacthub.io/images: |
         - name: redpanda
           image: docker.redpanda.com/redpandadata/kminion:v2.2.5
       artifacthub.io/license: Apache-2.0
@@ -141,6 +223,49 @@ entries:
     - https://github.com/machworklab/redpanda-helm-charts/releases/download/kminion-0.12.2/kminion-0.12.2.tgz
     version: 0.12.2
   operator:
+  - annotations:
+      artifacthub.io/crds: |
+        - kind: Redpanda
+          version: v1alpha1
+          name: redpanda
+          displayName: Redpanda
+          description: Define a Redpanda cluster
+      artifacthub.io/images: |
+        - name: redpanda-operator
+          image: docker.redpanda.com/redpandadata/redpanda-operator:v23.2.11
+        - name: redpanda
+          image: docker.redpanda.com/redpandadata/redpanda:v23.2.11
+        - name: kube-rbac-proxy
+          image: gcr.io/kubebuilder/kube-rbac-proxy:v0.8.0
+      artifacthub.io/license: Apache-2.0
+      artifacthub.io/links: |
+        - name: Documentation
+          url: https://docs.redpanda.com
+        - name: "Helm (>= 3.6.0)"
+          url: https://helm.sh/docs/intro/install/
+      artifacthub.io/operator: "true"
+      artifacthub.io/operatorCapabilities: Seamless Upgrades
+    apiVersion: v2
+    appVersion: v23.2.11
+    created: "2023-10-19T10:29:31.333534793Z"
+    dependencies:
+    - condition: monitoring.deployPrometheusKubeStack
+      name: kube-prometheus-stack
+      repository: https://prometheus-community.github.io/helm-charts
+      version: 51.2.0
+    description: Redpanda operator helm chart
+    digest: bcc408e72bbea2889f0069316b07a68633c7d8ca76bb552526dcca9a771ee542
+    icon: https://go.redpanda.com/hubfs/Redpandas/operator-panda.png
+    maintainers:
+    - name: redpanda-data
+      url: https://github.com/orgs/redpanda-data/people
+    name: operator
+    sources:
+    - https://github.com/redpanda-data/helm-charts
+    type: application
+    urls:
+    - https://github.com/machworklab/redpanda-helm-charts/releases/download/operator-0.3.24/operator-0.3.24.tgz
+    version: 0.3.24
   - annotations:
       artifacthub.io/crds: |
         - kind: Redpanda
@@ -230,6 +355,46 @@ entries:
     - https://github.com/machworklab/redpanda-helm-charts/releases/download/operator-0.3.8/operator-0.3.8.tgz
     version: 0.3.8
   redpanda:
+  - annotations:
+      artifacthub.io/images: |
+        - name: redpanda
+          image: docker.redpanda.com/redpandadata/redpanda:v23.2.12
+        - name: busybox
+          image: busybox:latest
+        - name: mintel/docker-alpine-bash-curl-jq
+          image: mintel/docker-alpine-bash-curl-jq:latest
+      artifacthub.io/license: Apache-2.0
+      artifacthub.io/links: |
+        - name: Documentation
+          url: https://docs.redpanda.com
+        - name: "Helm (>= 3.6.0)"
+          url: https://helm.sh/docs/intro/install/
+    apiVersion: v2
+    appVersion: v23.2.12
+    created: "2023-10-19T10:29:31.556459316Z"
+    dependencies:
+    - condition: console.enabled
+      name: console
+      repository: https://charts.redpanda.com
+      version: '>=0.5 <1.0'
+    - condition: connectors.enabled
+      name: connectors
+      repository: https://charts.redpanda.com
+      version: '>=0.1.2 <1.0'
+    description: Redpanda is the real-time engine for modern apps.
+    digest: 9d9dc3ee559e74ea08063e3843d30c83854c124212086e9305d23ad66d4a19ae
+    icon: https://images.ctfassets.net/paqvtpyf8rwu/3cYHw5UzhXCbKuR24GDFGO/73fb682e6157d11c10d5b2b5da1d5af0/skate-stand-panda.svg
+    kubeVersion: ^1.21.0-0
+    maintainers:
+    - name: redpanda-data
+      url: https://github.com/orgs/redpanda-data/people
+    name: redpanda
+    sources:
+    - https://github.com/redpanda-data/helm-charts
+    type: application
+    urls:
+    - https://github.com/machworklab/redpanda-helm-charts/releases/download/redpanda-5.6.21/redpanda-5.6.21.tgz
+    version: 5.6.21
   - annotations:
       artifacthub.io/images: |
         - name: redpanda
@@ -443,4 +608,4 @@ entries:
     urls:
     - https://charts.vectorized.io/redpanda-0.1.0.tgz
     version: 0.1.0
-generated: "2023-08-15T07:15:50.657298089Z"
+generated: "2023-10-19T10:29:31.556543022Z"
